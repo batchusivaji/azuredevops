@@ -1,0 +1,15 @@
+---
+pool:
+  name: 'dotnet'
+  VmImage: 'default'
+trigger:
+  - main
+steps:
+  - task: UseDotNet@2
+    inputs:
+      command: 'restore'
+      projects: src/NopCommerce.sln
+  - task: UseDotNet@2
+    inputs:
+      command: 'build'
+      projects: src/NopCommerce.sln 

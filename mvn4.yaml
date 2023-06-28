@@ -1,0 +1,17 @@
+---
+pool:
+  name: 'mvn4'
+  VmImage: 'ubuntu-latest'
+trigger:
+  - main
+steps:
+     - task: Maven@4
+       inputs:
+         mavenPOMFile: 'pom.xml'
+         publishJUnitResults: true
+         testResultsFiles: '**/surefire-reports/TEST-*.xml' 
+         testRunTitle: 'unittest-results'
+         javaHomeOption: 'JDKVersion'
+         jdkVersionOption: '1.7' 
+
+  

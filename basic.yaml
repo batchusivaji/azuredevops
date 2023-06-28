@@ -1,0 +1,7 @@
+---
+pool: 
+  name: 'azure-pipelines'
+  VmImage: 'ubuntu-latest'
+trigger:
+  - main
+script: printenv
