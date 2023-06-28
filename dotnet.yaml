@@ -1,7 +1,7 @@
 ---
 pool:
-  name: 'dotnet'
-  VmImage: 'default'
+  name: 'Azure-pipelines'
+  VmImage: 'ubuntu-22.04'
 trigger:
   - main
 steps:
