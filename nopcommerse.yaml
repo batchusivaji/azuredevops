@@ -28,7 +28,7 @@ stages:
     displayName: Dotnet-publish
     inputs:
       command: 'publish'
-      projects: '--no-build --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(BuildConfiguration)'
+      projects: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(BuildConfiguration)'
   - task: PublishBuildArtifacts@1
     displayName: Publish-artifact
     inputs:
