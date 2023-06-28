@@ -1,0 +1,35 @@
+---
+pool:
+  name: 'Azure-pipeline'
+  VmImage: 'ubuntu-22.04'
+trigger:
+  - main
+stages:
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: 'restore'
+      projects: ./src/NopCommerce.sln
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      command: 'build'
+      projects: ./src/NopCommerce.sln
+      arguments: '--configuration $(BuildConfiguration)'
+  - task: DotNetCoreCLI@2
+    displayName: Dotnet-test
+    inputs:
+      command: 'test'
+      projects:
+       ./src/Tests/Nop.Core.Tests/Nop.Core.Tests.csproj
+       ./src/Tests/Nop.Web.MVC.Tests/Nop.Web.MVC.Tests.csproj
+       ./src/Tests/Nop.Services.Tests/Nop.Services.Tests.csproj
+  - task: DotNetCoreCLI@2
+    displayName: Dotnet-publish
+    inputs:
+      command: 'publish'
+      projects: '--no-build --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(BuildConfiguration)'
+  - task: PublishBuildArtifacts@1
+    displayName: Publish-artifact
+    inputs:
+      ArtfactName: '$(Parameters.ArtifactName)'
