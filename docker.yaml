@@ -1,0 +1,21 @@
+---
+pool:
+  name: 'Azure-pipeline'
+  VmImage: 'default'
+trigger:
+  - main
+parameters:
+  - name: docker
+    displayName: docker
+    type: string
+    default: v1.0
+steps:
+  - task: Docker@2
+    inputs:
+      command: 'build'
+      Dockerfile: '**/Dockerfile'
+      buildContext: '**'
+      repository:  'StudentCourses'
+      tags: '$(Build.BuildId)' 
+
+    
