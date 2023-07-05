@@ -8,10 +8,16 @@ steps:
      - task: Maven@4
        inputs:
          mavenPOMFile: 'pom.xml'
+         goals: 'package'
          publishJUnitResults: true
          testResultsFiles: '**/surefire-reports/TEST-*.xml' 
          testRunTitle: 'unittest-results'
          javaHomeOption: 'JDKVersion'
-         jdkVersionOption: '1.7' 
+         jdkVersionOption: '1.8' 
+
+     - task: CopyFiles@2
+       inputs:
+         Contents: "**/target/gameoflife.war"
+         TargetFolder: $(Build.ArtifactStagingDirectory)
 
   
