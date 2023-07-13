@@ -1,7 +1,15 @@
 ---
-pool: 
-  name: 'azure-pipelines'
-  VmImage: 'ubuntu-latest'
 trigger:
   - main
-script: printenv
+stages:
+  - stage:
+    displayName: ''
+    pool: 
+      name: 'azure-pipelines'
+      VmImage: 'ubuntu-latest'
+
+    jobs:
+      - job:
+        displayName:
+        steps:
+          - task:
