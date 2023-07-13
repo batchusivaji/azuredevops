@@ -1,7 +1,0 @@
----
-trigger:
-  - master
-pool:
-  name: 'Azure Pipelines'
-  VmImage: 'ubuntu-22.04'
-stages:
