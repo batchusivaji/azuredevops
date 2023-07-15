@@ -4,5 +4,7 @@ trigger:
 
 pool: 
   vmImage: ubuntu-latest
-  name: 'Azure Pipelines'
-  
+  name: 'Azure Pipelines' 
+stages:
+  - stage: 
+    jobs:
