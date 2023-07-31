@@ -23,8 +23,8 @@ stages:
             # or
           - script:  
 ```
-```yml
-
+## updates
+   ## latest
 * Here if we have only 1 stage we can directly write from jobs
 * If we have only 1 stage and 1 job we can directly write form steps
 ```
