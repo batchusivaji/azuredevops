@@ -6,6 +6,7 @@
 ### contnous integration:` Continous integration we don't do any environmental creation. we build the package run very small test to give a feedback to the developer whatever code changes which have done are working or not`
  ![preview](images/azd1.png)
 
+
 #### Azure pipelie is a collection of 
  * Stages: Each stage is collection of `Jobs`
  * Jobs: Each is collection of `Steps`
@@ -24,4 +25,4 @@ stages:
 ```
 * Here if we have only 1 stage we can directly write from jobs
 * If we have only 1 stage and 1 job we can directly write form steps
-  
+```
